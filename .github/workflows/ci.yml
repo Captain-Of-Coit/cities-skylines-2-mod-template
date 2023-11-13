@@ -1,0 +1,31 @@
+name: mycoolmod-ci
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout source
+      uses: actions/checkout@v3
+    - name: Check libcs2
+      uses: actions/checkout@v3
+      with:
+        # Make sure you change this repository to point to your own PRIVATE repository of the game DLLs
+        repository: Captain-Of-Coit/libcs2
+        # Make sure you've created a "GitHub Personal Access Token" with READ access to the above private repository
+        token: ${{ secrets.GH_PAT }}
+        path: libcs2/
+    - name: Install .NET Core
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 6.0.x
+    - name: Build
+      run: make package-unix
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: release-${{ github.sha }}
+        path: dist/*.dll
