@@ -17,6 +17,24 @@ This repository template allows you to get started with Cities: Skylines 2 moddi
 After running the last command, the mod should be automatically copied to your game directory,
 so launching the game should include running the mod you just started :)
 
+# Regarding BepInEx version 5 (Stable) VS 6 (Alpha/Unstable/Nightly)
+
+Currently, this mod template defaults to building against BepInEx version 6 (unstable pre-release). If you'd like to instead use Stable BepInEx version 5, you can run the build like this:
+
+```
+$ make build BEPINEX_VERSION=5
+```
+
+In order to run code only for one BepInEx version, you can do something like this:
+
+```
+#if BEPINEX_V6
+    using BepInEx.Unity.Mono;
+#endif
+```
+
+That would only run `using BepInEx.Unity.Mono` when you're building the project for BepInEx 6. Add in a `else` if you want to do something different when it's version 5.
+
 # CI / GitHub Actions - Setup
 
 In order to get the CI/GitHub Actions workflow to work, you have to do a couple of things.

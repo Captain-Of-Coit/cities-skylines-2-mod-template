@@ -1,4 +1,5 @@
 all: build
+BEPINEX_VERSION = 6
 
 clean:
 	@dotnet clean
@@ -7,7 +8,7 @@ restore:
 	@dotnet restore
 
 build: clean restore
-	@dotnet build
+	@dotnet build /p:BepInExVersion=$(BEPINEX_VERSION)
 
 package-win:
 	@mkdir dist
