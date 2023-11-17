@@ -6,6 +6,8 @@ This repository template allows you to get started with Cities: Skylines 2 moddi
 
 - [Cities: Skylines 2](https://store.steampowered.com/app/949230/Cities_Skylines_II/) (duh)
 - [BepInEx-Unity.Mono-win-x64-6.0.0-be.674+82077ec](https://builds.bepinex.dev/projects/bepinex_be)
+- (Optional) [dotnet-script](https://github.com/dotnet-script/dotnet-script) (for `rename.csx` and `version-dump.csx` helper scripts)
+    - Installation `dotnet tool install -g dotnet-script`
 
 # Usage
 

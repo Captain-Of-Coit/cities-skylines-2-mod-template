@@ -1,0 +1,23 @@
+[config]
+schemaVersion = "0.0.1"
+
+[package]
+namespace = "CaptainOfCoit"
+name = "MyCoolMod"
+versionNumber = "0.1.0"
+description = "Example mod description"
+websiteUrl = "https://thunderstore.io"
+containsNsfwContent = false
+
+[package.dependencies]
+# AuthorName-PackageName = "0.0.1"
+
+[build]
+icon = "./icon.png"
+readme = "./README.md"
+outdir = "./ts-build"
+
+[publish]
+repository = "https://thunderstore.io"
+communities = [ "cities-skylines-ii", ]
+categories = [ "mods" ]
