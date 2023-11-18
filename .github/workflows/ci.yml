@@ -40,7 +40,7 @@ jobs:
       - name: Download built artifact
         uses: actions/download-artifact@v3
         with:
-          name: built-code-${{ needs.build.outputs.bepinex-version }}
+          name: built-code-5
           path: dist/
       - name: Debug
         run: ls && ls dist/
