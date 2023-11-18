@@ -3,6 +3,8 @@ name: mycoolmod-ci
 on:
   push:
     branches: [ "master" ]
+    tags:
+      - 'v*'
 
 jobs:
   build:
@@ -28,7 +30,7 @@ jobs:
       - name: Upload Artifact (BepInEx ${{ matrix.bepinex-version }})
         uses: actions/upload-artifact@v3
         with:
-          name: release-${{ github.sha }}-bepinex-${{ matrix.bepinex-version }}
+          name: built-code-${{ matrix.bepinex-version }}
           path: dist/*.dll
   publish:
     needs: build
