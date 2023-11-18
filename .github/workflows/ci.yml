@@ -30,3 +30,21 @@ jobs:
         with:
           name: release-${{ github.sha }}-bepinex-${{ matrix.bepinex-version }}
           path: dist/*.dll
+  publish:
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download built artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: built-code-${{ needs.build.outputs.bepinex-version }}
+          path: dist/
+      - name: Debug
+        run: ls && ls dist/
+      - name: Download tcli
+        run: |
+          curl -L https://github.com/thunderstore-io/thunderstore-cli/releases/download/0.2.1/tcli-0.2.1-linux-x64.tar.gz -o tcli.tar.gz
+          tar -xzf tcli.tar.gz
+      - name: Publish with tcli
+        run: ./tcli publish --token=${{ secrets.TS_TOKEN }}
