@@ -71,6 +71,11 @@
 		<PackageReference Include="UnityEngine.Modules" Version="2022.3.7" IncludeAssets="compile" />
 	</ItemGroup>
 
+	<!-- Set the default value for BepInExVersion -->
+	<PropertyGroup>
+	<BepInExVersion Condition="'$(BepInExVersion)' == ''">5</BepInExVersion>
+	</PropertyGroup>
+
 	<!--
 		These ItemGroups and PropertyGroups gives you compatibility with both BepInEx 5 and 6.
 		Mainly for the purposes of being able to distribute your mods on Thunderstore, and
