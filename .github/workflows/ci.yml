@@ -3,8 +3,7 @@ name: mycoolmod-ci
 on:
   push:
     branches: [ "master" ]
-    tags:
-      - 'v*'
+    tags: [ "v*" ]
 
 jobs:
   build:
