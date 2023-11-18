@@ -73,7 +73,7 @@
 
 	<!-- Set the default value for BepInExVersion -->
 	<PropertyGroup>
-	<BepInExVersion Condition="'$(BepInExVersion)' == ''">5</BepInExVersion>
+		<BepInExVersion Condition="'$(BepInExVersion)' == ''">5</BepInExVersion>
 	</PropertyGroup>
 
 	<!--
