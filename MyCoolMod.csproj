@@ -57,9 +57,9 @@
 		DO NOT make the proprietary DLLs for the game public, as the files are owned by PDX/CO. 
 	-->
 	<ItemGroup>
-		<Reference Include="../libcs2/Colossal.*.dll" Private="False"/>
-		<Reference Include="../libcs2/Game.dll" Private="False"/>
-		<Reference Include="../libcs2/Unity.*.dll" Private="False"/>
+		<Reference Include="libcs2/Colossal.*.dll" Private="False"/>
+		<Reference Include="libcs2/Game.dll" Private="False"/>
+		<Reference Include="libcs2/Unity.*.dll" Private="False"/>
 	</ItemGroup>
 
 	<!--
