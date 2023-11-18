@@ -10,6 +10,7 @@
 	<PropertyGroup>
 		<TargetFramework>netstandard2.1</TargetFramework>
 		<AssemblyName>MyCoolMod</AssemblyName>
+		<RootNamespace>MyCoolMod</RootNamespace>
 		<Description>A mod that I made for Cities: Skylines 2</Description>
 		<Version>0.1.0</Version>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -19,8 +20,10 @@
 			https://nuget.bepinex.dev/v3/index.json;
 			https://nuget.samboy.dev/v3/index.json
 		</RestoreAdditionalProjectSources>
-		<RootNamespace>MyCoolMod</RootNamespace>
+		<!-- Copies references we make to 3rd party library for distributions -->
 		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+		<!-- Suppress the version conflict warnings for System.Net.Http and System.IO.Compression -->
+		<NoWarn>MSB3277</NoWarn>
 	</PropertyGroup>
 
 	<!--
@@ -36,34 +39,9 @@
 		above needs to be uncommented for this to work
 	-->
 	<ItemGroup>
-		<Reference Include="Colossal.AssetPipeline"><HintPath>$(Cities2_Location)\Cities2_Data\Managed\Colossal.AssetPipeline.dll</HintPath><Private>False</Private></Reference>
-		<Reference Include="Colossal.AssetPipeline.Native"><HintPath>$(Cities2_Location)\Cities2_Data\Managed\Colossal.AssetPipeline.Native.dll</HintPath><Private>False</Private></Reference>
-		<Reference Include="Colossal.ATL"><HintPath>$(Cities2_Location)\Cities2_Data\Managed\Colossal.ATL.dll</HintPath><Private>False</Private></Reference>
-		<Reference Include="Colossal.CharacterSystem"><HintPath>$(Cities2_Location)\Cities2_Data\Managed\Colossal.CharacterSystem.dll</HintPath><Private>False</Private></Reference>
-		<Reference Include="Colossal.Collections"><HintPath>$(Cities2_Location)\Cities2_Data\Managed\Colossal.Collections.dll</HintPath><Private>False</Private></Reference>
-		<Reference Include="Colossal.Core"><HintPath>$(Cities2_Location)\Cities2_Data\Managed\Colossal.Core.dll</HintPath><Private>False</Private></Reference>
-		<Reference Include="Colossal.IO"><HintPath>$(Cities2_Location)\Cities2_Data\Managed\Colossal.IO.dll</HintPath><Private>False</Private></Reference>
-		<Reference Include="Colossal.IO.AssetDatabase"><HintPath>$(Cities2_Location)\Cities2_Data\Managed\Colossal.IO.AssetDatabase.dll</HintPath><Private>False</Private></Reference>
-		<Reference Include="Colossal.Localization"><HintPath>$(Cities2_Location)\Cities2_Data\Managed\Colossal.Localization.dll</HintPath><Private>False</Private></Reference>
-		<Reference Include="Colossal.Logging"><HintPath>$(Cities2_Location)\Cities2_Data\Managed\Colossal.Logging.dll</HintPath><Private>False</Private></Reference>
-		<Reference Include="Colossal.Mathematics"><HintPath>$(Cities2_Location)\Cities2_Data\Managed\Colossal.Mathematics.dll</HintPath><Private>False</Private></Reference>
-		<Reference Include="Colossal.Mono.Cecil"><HintPath>$(Cities2_Location)\Cities2_Data\Managed\Colossal.Mono.Cecil.dll</HintPath><Private>False</Private></Reference>
-		<Reference Include="Colossal.OdinSerializer"><HintPath>$(Cities2_Location)\Cities2_Data\Managed\Colossal.OdinSerializer.dll</HintPath><Private>False</Private></Reference>
-		<Reference Include="Colossal.Plugins"><HintPath>$(Cities2_Location)\Cities2_Data\Managed\Colossal.Plugins.dll</HintPath><Private>False</Private></Reference>
-		<Reference Include="Colossal.PSI.Common"><HintPath>$(Cities2_Location)\Cities2_Data\Managed\Colossal.PSI.Common.dll</HintPath><Private>False</Private></Reference>
-		<Reference Include="Colossal.PSI.Discord"><HintPath>$(Cities2_Location)\Cities2_Data\Managed\Colossal.PSI.Discord.dll</HintPath><Private>False</Private></Reference>
-		<Reference Include="Colossal.PSI.PdxSdk"><HintPath>$(Cities2_Location)\Cities2_Data\Managed\Colossal.PSI.PdxSdk.dll</HintPath><Private>False</Private></Reference>
-		<Reference Include="Colossal.PSI.Steamworks"><HintPath>$(Cities2_Location)\Cities2_Data\Managed\Colossal.PSI.Steamworks.dll</HintPath><Private>False</Private></Reference>
-		<Reference Include="Colossal.UI"><HintPath>$(Cities2_Location)\Cities2_Data\Managed\Colossal.UI.dll</HintPath><Private>False</Private></Reference>
-		<Reference Include="Colossal.UI.Binding"><HintPath>$(Cities2_Location)\Cities2_Data\Managed\Colossal.UI.Binding.dll</HintPath><Private>False</Private></Reference>
-		<Reference Include="cohtml.Net"><HintPath>$(Cities2_Location)\Cities2_Data\Managed\cohtml.Net.dll</HintPath><Private>False</Private></Reference>
-		<Reference Include="Game"><HintPath>$(Cities2_Location)\Cities2_Data\Managed\Game.dll</HintPath><Private>False</Private></Reference>
-		<Reference Include="Unity.Entities"><HintPath>$(Cities2_Location)\Cities2_Data\Managed\Unity.Entities.dll</HintPath><Private>False</Private></Reference>
-		<Reference Include="Unity.InputSystem"><HintPath>$(Cities2_Location)\Cities2_Data\Managed\Unity.InputSystem.dll</HintPath><Private>False</Private></Reference>
-		<Reference Include="Unity.Mathematics"><HintPath>$(Cities2_Location)\Cities2_Data\Managed\Unity.Mathematics.dll</HintPath><Private>False</Private></Reference>
-		<Reference Include="Unity.Collections"><HintPath>$(Cities2_Location)\Cities2_Data\Managed\Unity.Collections.dll</HintPath><Private>False</Private></Reference>
-		<Reference Include="Unity.Burst"><HintPath>$(Cities2_Location)\Cities2_Data\Managed\Unity.Burst.dll</HintPath><Private>False</Private></Reference>
-		<Reference Include="Unity.RenderPipelines.HighDefinition.Runtime"><HintPath> $(Cities2_Location)\Cities2_Data\Managed\Unity.RenderPipelines.HighDefinition.Runtime.dll</HintPath><Private>False</Private></Reference>
+        <Reference Include="$(Cities2_Location)\Cities2_Data\Managed\Colossal.*.dll" Private="False"/>
+        <Reference Include="$(Cities2_Location)\Cities2_Data\Managed\Game.dll" Private="False"/>
+        <Reference Include="$(Cities2_Location)\Cities2_Data\Managed\Unity.*.dll" Private="False"/>
 	</ItemGroup>
 
 	<!--
@@ -79,34 +57,16 @@
 		DO NOT make the proprietary DLLs for the game public, as the files are owned by PDX/CO. 
 	-->
 	<ItemGroup>
-		<Reference Include="Game">
-			<HintPath>../libcs2/Game.dll</HintPath>
-			<Private>False</Private>
-		</Reference>
-		<Reference Include="Colossal.Core">
-			<HintPath>../libcs2/Colossal.Core.dll</HintPath>
-			<Private>False</Private>
-		</Reference>
-		<Reference Include="Colossal.UI">
-			<HintPath>../libcs2/Colossal.UI.dll</HintPath>
-			<Private>False</Private>
-		</Reference>
-		<Reference Include="Unity.Entities">
-			<HintPath>../libcs2/Unity.Entities.dll</HintPath>
-			<Private>False</Private>
-		</Reference>
-		<Reference Include="Unity.InputSystem">
-			<HintPath>../libcs2/Unity.InputSystem.dll</HintPath>
-			<Private>False</Private>
-		</Reference>
+		<Reference Include="../libcs2/Colossal.*.dll" Private="False"/>
+		<Reference Include="../libcs2/Game.dll" Private="False"/>
+		<Reference Include="../libcs2/Unity.*.dll" Private="False"/>
 	</ItemGroup>
 
 	<!--
 		Everything related to BepInEx and Harmony
 	-->
 	<ItemGroup>
-		<PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
-		<PackageReference Include="BepInEx.PluginInfoProps" Version="2.*" />
+		<PackageReference Include="BepInEx.PluginInfoProps" Version="2.0.0" />
 		<PackageReference Include="HarmonyX" Version="2.10.2"></PackageReference>
 		<PackageReference Include="UnityEngine.Modules" Version="2022.3.7" IncludeAssets="compile" />
 	</ItemGroup>
@@ -121,7 +81,7 @@
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(BepInExVersion)' == '5'">
-		<PackageReference Include="BepInEx.Core" Version="5.*" IncludeAssets="compile"/>
+		<PackageReference Include="BepInEx.Core" Version="5.4.22" IncludeAssets="compile"/>
 	</ItemGroup>
 
 	<PropertyGroup Condition="'$(BepInExVersion)' == '6'">

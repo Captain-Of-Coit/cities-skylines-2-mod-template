@@ -47,6 +47,11 @@ In order to get the CI/GitHub Actions workflow to work, you have to do a couple 
 
 Now the CI job should work as expected :)
 
+# Credits
+
+- Thanks to Cities Skylines 2 Unofficial Modding Discord
+- Particular thanks to LE who helped with feedback and improving .csproj setup
+
 # Community
 
 Looking to discuss Cities: Skylines 2 Unofficial modding together with other modders? You're welcome to join our "Cities 2 Modding" Discord, which you can find here: https://discord.gg/vd7HXnpPJf
