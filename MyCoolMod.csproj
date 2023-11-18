@@ -81,7 +81,7 @@
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(BepInExVersion)' == '5'">
-		<PackageReference Include="BepInEx.Core" Version="5.4.22" IncludeAssets="compile"/>
+		<PackageReference Include="BepInEx.Core" Version="5.4.21" IncludeAssets="compile"/>
 	</ItemGroup>
 
 	<PropertyGroup Condition="'$(BepInExVersion)' == '6'">
