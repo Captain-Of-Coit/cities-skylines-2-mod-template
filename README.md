@@ -1,11 +1,20 @@
 # Cities: Skylines 2 - C# Mod template
 
-This repository template allows you to get started with Cities: Skylines 2 modding easily.
+This repository template allows you to get started with Cities: Skylines 2 modding easily, all the way to building your mod on commit with GitHub Actions and publishing your mod automatically on Thunderstore.
+
+- [Requirements](#requirements)
+- [Usage](#usage)
+- [Renaming your project](#renaming-your-project)
+- [Incrementing version number](#incrementing-version-number)
+- [CI / GitHub Actions - Setup](#ci-github-actions-setup)
+- [Regarding BepInEx version 5 (Stable) VS 6 (Alpha/Unstable/Nightly)](#regarding-bepinex-version-5-stable-vs-6-alphaunstablenightly)
+- [Credits](#credits)
+- [Community](#community)
 
 # Requirements
 
 - [Cities: Skylines 2](https://store.steampowered.com/app/949230/Cities_Skylines_II/) (duh)
-- [BepInEx-Unity.Mono-win-x64-6.0.0-be.674+82077ec](https://builds.bepinex.dev/projects/bepinex_be)
+- [BepInEx 5.4.22](https://github.com/BepInEx/BepInEx/releases) or later
 - (Optional) [dotnet-script](https://github.com/dotnet-script/dotnet-script) (for `rename.csx` helper script)
     - Installation `dotnet tool install -g dotnet-script`
 
