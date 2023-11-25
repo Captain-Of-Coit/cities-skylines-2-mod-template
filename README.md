@@ -78,7 +78,7 @@ That would only run `using BepInEx.Unity.Mono` when you're building the project 
 # Credits
 
 - Thanks to Cities Skylines 2 Unofficial Modding Discord
-- Particular thanks to LE who helped with feedback and improving .csproj setup
+- Particular thanks to [@StudioLE](https://github.com/StudioLE) who helped with feedback and improving .csproj setup
 
 # Community
 
