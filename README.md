@@ -5,6 +5,7 @@ This repository template allows you to get started with Cities: Skylines 2 moddi
 - [Requirements](#requirements)
 - [Usage](#usage)
 - [Renaming your project](#renaming-your-project)
+- [Set license details](#set-license-details)
 - [Incrementing version number](#incrementing-version-number)
 - [CI / GitHub Actions - Setup](#ci-github-actions-setup)
 - [Regarding BepInEx version 5 (Stable) VS 6 (Alpha/Unstable/Nightly)](#regarding-bepinex-version-5-stable-vs-6-alphaunstablenightly)
@@ -35,6 +36,10 @@ You can leverage the helper script in `scripts/rename.csx` in order to replace "
 ```
 $ dotnet script scripts\rename.csx "MyCoolMod" "AnotherModIMade"
 ```
+
+# Set license details
+
+You'll need to update `LICENSE` with the correct details for `<Year>` and `<Author>`, and change "MyCoolMod" to your mod name if you haven't already.
 
 # Incrementing version number
 
